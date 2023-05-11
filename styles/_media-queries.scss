@@ -1,0 +1,38 @@
+@media (min-width: 50em) {
+  .parent {
+    .primary-header {
+      .container {
+        .primary-navigation {
+          .nav-list {
+            background-color: red;
+            display: grid;
+            gap: 50px;
+            text-align: center;
+            font-weight: var(--fw-bold);
+          }
+        }
+      }
+    }
+  }
+
+  .sec_box,
+  right_sec {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    background-color: green;
+  }
+}
+
+@media (max-width: 50em) {
+  .primary-header[data-overlay]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    .nav-list {
+      display: grid;
+      gap: 50px;
+      text-align: center;
+      font-weight: var(--fw-bold);
+    }
+  }
+}
