@@ -1,15 +1,13 @@
 @media (min-width: 50em) {
-  .parent {
-    .primary-header {
-      .container {
-        .primary-navigation {
-          .nav-list {
-            background-color: red;
-            display: grid;
-            gap: 50px;
-            text-align: center;
-            font-weight: var(--fw-bold);
-          }
+  .primary-header {
+    .container {
+      .primary-navigation {
+        .nav-list {
+          background-color: red;
+          display: grid;
+          gap: 50px;
+          text-align: center;
+          font-weight: var(--fw-bold);
         }
       }
     }
