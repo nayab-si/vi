@@ -1,5 +1,33 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@media (min-width: 50em) {
+  .parent .primary-header .container .primary-navigation .nav-list {
+    background-color: red;
+    display: grid;
+    gap: 50px;
+    text-align: center;
+    font-weight: var(--fw-bold);
+  }
+  .sec_box,
+  right_sec {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    background-color: green;
+  }
+}
+@media (max-width: 50em) {
+  .primary-header[data-overlay]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+  }
+  .primary-header[data-overlay]::before .nav-list {
+    display: grid;
+    gap: 50px;
+    text-align: center;
+    font-weight: var(--fw-bold);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,54 +43,19 @@
   align-items: center;
   flex-direction: column;
 }
-.parent header {
-  width: 85%;
-  padding: 16px 0;
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
-  padding: 16px 0;
-  min-height: 60px;
-  border-bottom: 1px solid #f5f8fe;
-  position: sticky;
-  top: 0;
-  z-index: 999999;
+.parent .primary-header {
+  padding-top: 3rem;
 }
-.parent header .nav_items {
+.parent .primary-header .container .nav-list {
   display: flex;
-  width: 60%;
-  padding: 10px;
+  gap: 50px;
 }
-.parent header .nav_items ul {
-  justify-content: space-between;
-  display: flex;
-  list-style: none;
-  width: 100%;
-}
-.parent header .nav_items ul a {
-  font-weight: 500;
+.parent .primary-header .container .nav-list a {
   text-decoration: none;
-  color: #2f3043;
-  font-size: 16px;
-  transition: 0.3s ease all;
-  display: inline-block;
-  font-size: 18px;
 }
-.parent header .nav_items ul a:hover {
-  color: #ed2736;
-}
-@media screen and (max-width: 768px) {
-  .parent header header {
-    background-color: #ed2736;
-    justify-content: center;
-    display: inline;
-  }
-  .parent header .top_bar nav {
-    flex-direction: column;
-  }
-  .parent header .nav_items ul {
-    flex-direction: column;
-  }
+.parent .primary-header .container .nav-list a:hover,
+.parent .primary-header .container .nav-list a:focus {
+  color: var(--clr-accent-400);
 }
 .parent section {
   width: 85%;
@@ -87,8 +80,8 @@
   cursor: pointer;
 }
 .parent section .sec_box {
-  justify-content: space-between;
-  display: flex;
+  display: grid;
+  gap: 1rem;
 }
 .parent section .sec_box .left_sec .bold_txt {
   margin: 20px 0px;
@@ -142,7 +135,8 @@
   visibility: hidden;
 }
 .parent section .sec_box .right_sec {
-  width: 50%;
+  display: grid;
+  gap: 1rem;
   margin-bottom: 30px;
   background: #fefaf6;
   border-radius: 10px;
@@ -486,87 +480,6 @@
 .parent section .fullscn img {
   height: 30px;
 }
-@media screen and (max-width: 768px) {
-  .parent section .sec_box {
-    display: block;
-  }
-  .parent section .sec_box .left_sec .call {
-    visibility: visible;
-    background-color: #898888;
-  }
-  .parent section .sec_box .right_sec {
-    width: 100%;
-  }
-  .parent section .sec_box .right_sec .customers {
-    display: block;
-  }
-  .parent section .page2 .home_cards .card1 {
-    width: 100%;
-  }
-  .parent section .page2 .home_cards .card_hide {
-    display: none;
-  }
-  .parent section .page2 .txt_form {
-    display: block;
-    width: 100%;
-  }
-  .parent section .page2 .txt_form .forms {
-    display: block;
-    width: 100%;
-  }
-  .parent section .page2 .txt_form .forms input {
-    margin: 20px 0px;
-  }
-  .parent section .page3 {
-    background-color: #001540;
-  }
-  .parent section .page3 .featured_container .feat_serv .feat_box {
-    font-size: 20px;
-    background-color: #001540;
-    background-color: #001540;
-    margin: 20px 10px;
-    width: 40%;
-  }
-  .parent section .about_us .intro {
-    display: block;
-  }
-  .parent section .about_us .intro p {
-    width: 100%;
-  }
-  .parent section .about_us .intro .vi_logo {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  .parent section .about_us .intro .vi_logo img {
-    width: 80%;
-  }
-  .parent section .blogs .blog_cards .card_items {
-    width: 90%;
-  }
-  .parent section .blogs .blog_cards .card_items .card_hide {
-    display: none;
-  }
-  .parent section .blogs .blog_cards .card_items .fansy_card {
-    width: 90%;
-  }
-  .parent section .blogs .blog_cards .card_items .fansy_card p {
-    width: 100%;
-  }
-  .parent section .social .social_cards {
-    display: block;
-  }
-  .parent section .social .social_cards .card_tabs {
-    width: 90%;
-  }
-  .parent section .qr_code {
-    display: block;
-  }
-  .parent section .qr_code .qr_right {
-    display: block;
-  }
-}
 .parent footer {
   width: 85%;
 }
@@ -602,14 +515,6 @@
 }
 .parent footer .bottom_bar .powerd {
   text-align: center;
-}
-@media screen and (max-width: 768px) {
-  .parent footer .cat_list {
-    flex-direction: column;
-  }
-  .parent footer .bottom_bar {
-    flex-direction: column;
-  }
 }
 
 .breadcrumb ul {
